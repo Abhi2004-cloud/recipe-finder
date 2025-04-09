@@ -47,7 +47,7 @@ exports.getRecipeById = async (req, res) => {
   
       const newRecipe = new Recipe({
         title,
-        ingredients,
+        ingredients: ingredientsArray,
         instructions,
         cuisine,
         image: imagePath
