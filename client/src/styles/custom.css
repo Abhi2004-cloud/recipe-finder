@@ -1,0 +1,26 @@
+/* src/styles/custom.css */
+
+.recipe-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #343a40;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    color: #495057;
+  }
+  
