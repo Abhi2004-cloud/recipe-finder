@@ -9,7 +9,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/recipes/${id}`);
+        const res = await axios.get(`https://recipe-finder-u4g2.onrender.com/api/recipes/${id}`);
         setRecipe(res.data);
       } catch (err) {
         console.error("Error fetching recipe:", err);
@@ -26,11 +26,11 @@ const RecipeDetail = () => {
       <div className="card shadow" style={{ maxWidth: "600px", width: "100%" }}>
         {recipe.image && (
           <img
-            src={`http://localhost:5000${recipe.image}`}
-            alt={recipe.title}
-            className="card-img-top"
-            style={{ height: "250px", objectFit: "cover" }}
-          />
+          src={`https://recipe-finder-u4g2.onrender.com${recipe.image}`}
+          alt={recipe.title}
+          className="card-img-top"
+          style={{ height: "250px", objectFit: "cover" }}
+        />
         )}
         <div className="card-body">
           <h4 className="card-title mb-3">{recipe.title}</h4>

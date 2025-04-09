@@ -12,7 +12,7 @@ const RecipeList = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get(`http://localhost:5000/api/recipes?search=${searchTerm}`);
+      const res = await axios.get(`https://recipe-finder-u4g2.onrender.com/api/recipes?search=${searchTerm}`);
       if (Array.isArray(res.data)) {
         setRecipes(res.data);
       } else {
@@ -48,11 +48,11 @@ const RecipeList = () => {
               <div className="card h-100 shadow-sm">
                 {recipe.image && (
                   <img
-                    src={`http://localhost:5000${recipe.image}`}
-                    alt={recipe.title}
-                    className="card-img-top"
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
+                  src={`https://recipe-finder-u4g2.onrender.com${recipe.image}`}
+                  alt={recipe.title}
+                  className="card-img-top"
+                  style={{ height: '200px', objectFit: 'cover' }}
+                />
                 )}
                 <div className="card-body">
                   <h5 className="card-title">{recipe.title}</h5>
