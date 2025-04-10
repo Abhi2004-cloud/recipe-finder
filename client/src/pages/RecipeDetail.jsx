@@ -9,7 +9,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await axios.get(`https://recipe-finder-1-j919.onrender.com/api/recipes/${id}`);
+        const res = await axios.get(`https://recipe-finder-2-two.vercel.app//api/recipes/${id}`);
         setRecipe(res.data);
       } catch (err) {
         console.error("Error fetching recipe:", err);
@@ -26,7 +26,7 @@ const RecipeDetail = () => {
       <div className="card shadow" style={{ maxWidth: "600px", width: "100%" }}>
         {recipe.image && (
           <img
-          src={`https://recipe-finder-1-j919.onrender.com${recipe.image}`}
+          src={`https://recipe-finder-2-two.vercel.app/${recipe.image}`}
           alt={recipe.title}
           className="card-img-top"
           style={{ height: "250px", objectFit: "cover" }}

@@ -35,7 +35,7 @@ export default function AddRecipe() {
 
     // ...imports
     await axios.post(
-      "https://recipe-finder-1-j919.onrender.com",
+      "https://recipe-finder-2-two.vercel.app/",
       data
     );
 
