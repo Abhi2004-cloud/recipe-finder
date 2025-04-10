@@ -12,7 +12,7 @@ const RecipeList = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get(`https://recipe-finder-2-two.vercel.app//api/recipes?search=${searchTerm}`);
+      const res = await axios.get(`https://recipe-finder-2-two.vercel.app/api/recipes?search=${searchTerm}`);
       if (Array.isArray(res.data)) {
         setRecipes(res.data);
       } else {

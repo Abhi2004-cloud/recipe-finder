@@ -17,7 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/custom.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter basename="/recipe-finder">
+  <BrowserRouter>
     <App />
   </BrowserRouter>
 );

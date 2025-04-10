@@ -9,7 +9,7 @@ const RecipeDetail = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await axios.get(`https://recipe-finder-2-two.vercel.app//api/recipes/${id}`);
+        const res = await axios.get(`https://recipe-finder-2-two.vercel.app/api/recipes/${id}`);
         setRecipe(res.data);
       } catch (err) {
         console.error("Error fetching recipe:", err);
