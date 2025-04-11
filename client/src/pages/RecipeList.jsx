@@ -12,7 +12,7 @@ const RecipeList = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get(`https://recipe-finder-2-two.vercel.app/api/recipes?search=${searchTerm}`);
+      const res = await axios.get(`https://recipe-finder-final2.vercel.app/api/recipes?search=${searchTerm}`);
       if (Array.isArray(res.data)) {
         setRecipes(res.data);
       } else {
@@ -48,7 +48,7 @@ const RecipeList = () => {
               <div className="card h-100 shadow-sm">
                 {recipe.image && (
                   <img
-                  src={`https://recipe-finder-2-two.vercel.app/${recipe.image}`}
+                  src={`https://recipe-finder-final2.vercel.app/${recipe.image}`}
                   alt={recipe.title}
                   className="card-img-top"
                   style={{ height: '200px', objectFit: 'cover' }}
