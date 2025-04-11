@@ -3,10 +3,10 @@ const Recipe = require('../models/Recipe');
 exports.getAllRecipes = async (req, res) => {
   try {
     const search = req.query.search;
-
     let query = {};
+
     if (search) {
-      const regex = new RegExp(search, 'i'); // case-insensitive
+      const regex = new RegExp(search, 'i');
       query = {
         $or: [
           { title: regex },
@@ -24,42 +24,42 @@ exports.getAllRecipes = async (req, res) => {
 };
 
 exports.getRecipeById = async (req, res) => {
-    try {
-      const recipe = await Recipe.findById(req.params.id);
-      if (!recipe) {
-        return res.status(404).json({ error: 'Recipe not found' });
-      }
-      res.json(recipe);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  };
-  
+  try {
+    const recipe = await Recipe.findById(req.params.id);
+    if (!recipe) return res.status(404).json({ error: 'Recipe not found' });
+    res.json(recipe);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
-  exports.createRecipe = async (req, res) => {
-    try {
-      const { title, ingredients, instructions, cuisine } = req.body;
-  
-      let imagePath = '';
-      if (req.file) {
-        imagePath = `/uploads/${req.file.filename}`; // 🔥 This is the path to the saved image
-      }
-  
-      const newRecipe = new Recipe({
-        title,
-        ingredients: ingredientsArray,
-        instructions,
-        cuisine,
-        image: imagePath
-      });
-  
-      await newRecipe.save();
-      res.status(201).json(newRecipe);
-    } catch (err) {
-      res.status(400).json({ error: err.message });
+exports.createRecipe = async (req, res) => {
+  try {
+    const { title, ingredients, instructions, cuisine } = req.body;
+
+    let imagePath = '';
+    if (req.file) {
+      imagePath = `/uploads/${req.file.filename}`;
     }
-  };
-  
+
+    const ingredientsArray = typeof ingredients === 'string'
+      ? ingredients.split(',').map(i => i.trim())
+      : ingredients;
+
+    const newRecipe = new Recipe({
+      title,
+      ingredients: ingredientsArray,
+      instructions,
+      cuisine,
+      image: imagePath
+    });
+
+    await newRecipe.save();
+    res.status(201).json(newRecipe);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
 
 exports.updateRecipe = async (req, res) => {
   try {

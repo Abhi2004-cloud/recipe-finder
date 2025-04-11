@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const recipeController = require('../controllers/recipeController');
-
 const multer = require('multer');
 const path = require('path');
 
-// Set up storage engine
+// Setup multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // make sure this folder exists
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
     const uniqueName = Date.now() + '-' + file.originalname;
@@ -18,14 +17,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-
-// Main routes
+// Routes
 router.get('/', recipeController.getAllRecipes);
-router.get('/:id', recipeController.getRecipeById); // ✅ New route for fetching a recipe by ID
+router.get('/:id', recipeController.getRecipeById);
 router.post('/', upload.single('image'), recipeController.createRecipe);
 router.put('/:id', recipeController.updateRecipe);
 router.delete('/:id', recipeController.deleteRecipe);
 
 module.exports = router;
+
+
 
 
