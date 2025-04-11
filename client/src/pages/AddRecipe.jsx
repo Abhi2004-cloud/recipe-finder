@@ -37,8 +37,7 @@ export default function AddRecipe() {
     await axios.post(
       "https://recipe-finder-2-two.vercel.app/api/recipes",
       data
-    );
-    
+    );    
 
     navigate("/");
   };
